@@ -17,6 +17,12 @@ namespace JwtUser.Service.Mapping
             CreateMap<Transport, AddTransportDto>().ReverseMap();
             CreateMap<Cars, CarsDto>().ReverseMap();
             CreateMap<Personal, PersonalDto>().ReverseMap();
+            CreateMap<AppUser, AppUserDto>().ReverseMap();
+            CreateMap<Personal, AddPersonelDto>().ReverseMap();
+            CreateMap<Application, AddApplicationDto>().ReverseMap();
+            CreateMap<Application, GetListApplicationDto>().ReverseMap();
+            CreateMap<Transport, AddTransportCityDto>().ReverseMap();
+
         }
     }
 }

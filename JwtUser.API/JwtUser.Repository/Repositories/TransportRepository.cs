@@ -35,6 +35,7 @@ namespace JwtUser.Repository.Repositories
                 .Include(x => x.HowCarries)
                 .Include(x => x.PackageHelpers)
                 .Include(x => x.Category)
+                .Include(x=>x.AppUser)
                 .Include(x => x.Street).ThenInclude(x => x.Towns).ThenInclude(x => x.City).ToListAsync();
         }
     }

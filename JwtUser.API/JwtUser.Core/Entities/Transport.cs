@@ -12,18 +12,21 @@ namespace JwtUser.Core.Entities
 
         //[JsonIgnore]
         public int CategoryId { get; set; }
-        [JsonIgnore]
+       // [JsonIgnore]
         public Category Category { get; set; }
 
 
 
         public string Directions { get; set; }      //adres tarifi
 
+        public int itemCount { get; set; }
+        public int packageCount { get; set; }
+
 
         //[JsonIgnore]
         public int StreetId { get; set; }
 
-        [JsonIgnore]
+        //[JsonIgnore]
         public Street Street { get; set; }
 
 
@@ -31,21 +34,21 @@ namespace JwtUser.Core.Entities
         //[JsonIgnore]
         public int HowCarryId { get; set; }
 
-        [JsonIgnore]
+       // [JsonIgnore]
          public HowCarry HowCarries { get; set; }
 
 
        //[JsonIgnore]
         public int PackageHelperId { get; set; }
 
-        [JsonIgnore]
+       // [JsonIgnore]
         public PackageHelper PackageHelpers { get; set; }
 
 
         //[JsonIgnore]
         public int InsuranceId { get; set; }
 
-        [JsonIgnore]
+        //[JsonIgnore]
         public Insurance Insurances { get; set; }
 
 
@@ -55,5 +58,8 @@ namespace JwtUser.Core.Entities
         [JsonIgnore]
         public AppUser AppUser { get; set; }
         
+        public int? ToStreetId { get; set; }
+        public Street? ToStreet { get; set; }
+
     }
 }

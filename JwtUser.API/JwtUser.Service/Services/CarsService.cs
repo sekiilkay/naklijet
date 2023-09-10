@@ -12,8 +12,11 @@ namespace JwtUser.Service.Services
 {
     public class CarsService : GenericService<Cars>, ICarsService
     {
-        public CarsService(IGenericRepository<Cars> genericRepository, IUnitOfWork unitOfWork) : base(genericRepository, unitOfWork)
+
+        private readonly ICarsRepository _carsRepository;
+        public CarsService(IGenericRepository<Cars> genericRepository, IUnitOfWork unitOfWork, ICarsRepository carsRepository) : base(genericRepository, unitOfWork)
         {
+            _carsRepository = carsRepository;
         }
     }
 }

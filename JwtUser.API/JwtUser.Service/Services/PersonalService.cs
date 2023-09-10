@@ -12,8 +12,10 @@ namespace JwtUser.Service.Services
 {
     public class PersonalService : GenericService<Personal>, IPersonalService
     {
-        public PersonalService(IGenericRepository<Personal> genericRepository, IUnitOfWork unitOfWork) : base(genericRepository, unitOfWork)
+        private readonly IPersonalRepository _personalRepository;
+        public PersonalService(IGenericRepository<Personal> genericRepository, IUnitOfWork unitOfWork, IPersonalRepository personalRepository) : base(genericRepository, unitOfWork)
         {
+            _personalRepository = personalRepository;
         }
     }
 }

@@ -27,6 +27,7 @@ namespace JwtUser.API.Controllers
 
 
         [HttpGet]
+
         public IActionResult GetListTransports()
         {
             var values =  _transportService.GetAllAsync();            
@@ -48,6 +49,20 @@ namespace JwtUser.API.Controllers
             var userId = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
             var transport = _mapper.Map<Transport>(transportDto);
+
+            transport.AppUserId = userId;
+
+            await _transportService.AddAsync(transport);
+            return Ok("Data success add");
+        }
+
+        [Authorize]
+        [HttpPost("TransportCity")]
+        public async Task<IActionResult> AddTransportCity(AddTransportCityDto transportCityDto)
+        {
+            var userId = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+            var transport = _mapper.Map<Transport>(transportCityDto);
 
             transport.AppUserId = userId;
 

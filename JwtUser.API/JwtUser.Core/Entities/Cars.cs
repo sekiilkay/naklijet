@@ -13,5 +13,10 @@ namespace JwtUser.Core.Entities
         public string? Brand { get; set; }
         public int? Capacity { get; set; }
         public string? Plate { get; set; }
+
+
+        public string? CompanyId { get; set; }
+        public AppUser? Company { get; set; }
+
     }
 }

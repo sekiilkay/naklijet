@@ -30,9 +30,11 @@ builder.Services.AddScoped(typeof(ITransportRepository), typeof(TransportReposit
 
 builder.Services.AddScoped<ICarsService, CarsService>();
 builder.Services.AddScoped<IPersonalService, PersonalService>();
+builder.Services.AddScoped<IApplicationService, ApplicationService>();
 
 builder.Services.AddScoped<ICarsRepository, CarsRepository>();
 builder.Services.AddScoped<IPersonalRepository, PersonalRepository>();
+builder.Services.AddScoped<IApplicationRepository, ApplicationRepository>();
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddAutoMapper(typeof(MapProfile));
@@ -76,7 +78,7 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-builder.Services.AddControllers().AddNewtonsoftJson(opt => opt.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
