@@ -43,7 +43,7 @@ builder.Services.AddAutoMapper(typeof(MapProfile));
 //Db created
 builder.Services.AddDbContext<AppDbContext>(x =>
 {
-    x.UseSqlServer(builder.Configuration.GetConnectionString("SqlCon"), option =>
+x.LogTo(Console.WriteLine,Microsoft.Extensions.Logging.LogLevel.Information).UseSqlServer(builder.Configuration.GetConnectionString("SqlCon"), option =>
     {
         option.MigrationsAssembly(Assembly.GetAssembly(typeof(AppDbContext)).GetName().Name);
     });
@@ -84,7 +84,16 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 
-
+builder.Services.AddCors(opt =>
+{
+    opt.AddPolicy("NaklijetCors", opt =>
+    {
+        opt.AllowAnyHeader()
+        .AllowAnyMethod()
+        .SetIsOriginAllowed((host) => true)
+        .AllowCredentials();
+    });
+});
 
 var app = builder.Build();
 
@@ -96,6 +105,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors("NaklijetCors");
+
 
 app.UseAuthentication();
 app.UseAuthorization();

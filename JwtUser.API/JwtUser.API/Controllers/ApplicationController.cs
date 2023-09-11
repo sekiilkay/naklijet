@@ -11,7 +11,7 @@ using System.Security.Claims;
 
 namespace JwtUser.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class ApplicationController : ControllerBase
     {
@@ -36,8 +36,10 @@ namespace JwtUser.API.Controllers
         [Route("GetRelations")]
         public async  Task<IActionResult> GetApplicationsWithRelations(int id)
         {
-            return Ok(await _applicationService.GetApplicationswithRelations(id));
+            var values = await _applicationService.GetApplicationswithRelations(id);
+            return Ok(values);
         }
+
 
        
 

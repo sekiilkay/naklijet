@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JwtUser.Core.DTOs.Response;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -54,7 +55,7 @@ namespace JwtUser.Core.Entities
 
         //[JsonIgnore]
         public string AppUserId { get; set; }
-
+        
         [JsonIgnore]
         public AppUser AppUser { get; set; }
         

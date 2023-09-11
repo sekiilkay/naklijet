@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "t9bB+DHit61ZPkppKMfSRhdrWaCAxI8EIflCz8DaxFyATdtGr7IjHclN0wKnFffEuPmde+FYBMZvXFz0+oWAaA==",
+  "dgSpecHash": "d/khRLCtxSgfzkadEFAs8AExZHhzylGM1AoM8ijD4YFDYUHbl4xeYcUvv+YnHlgViOYDMYzIqLoXGxNMNGYy9g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\sekii\\source\\repos\\TechcareerTransportathon\\Hackathons\\JwtUser.API\\JwtUser.API\\JwtUser.API.csproj",
+  "projectFilePath": "C:\\Users\\sekii\\Source\\Repos\\TechcareerTransportathon0000\\JwtUser.API\\JwtUser.API\\JwtUser.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\sekii\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\sekii\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
