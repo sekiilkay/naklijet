@@ -28,6 +28,28 @@ builder.Services.AddScoped(typeof(IGenericService<>), typeof(GenericService<>));
 builder.Services.AddScoped<ITransportService, TransportService>();
 builder.Services.AddScoped(typeof(ITransportRepository), typeof(TransportRepository));
 
+builder.Services.AddScoped<IAppPersonelService, AppPersonelService>();
+builder.Services.AddScoped(typeof(IAppPersonelRepository), typeof(AppPersonelRepository));
+
+builder.Services.AddScoped<ICityService, CityService>();
+builder.Services.AddScoped(typeof(ICityRepository), typeof(CityRepository));
+
+builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped(typeof(ICategoryRepository), typeof(CategoryRepository));
+
+builder.Services.AddScoped<IHowCarryService, HowCarryService>();
+builder.Services.AddScoped(typeof(IHowCarryRepository), typeof(HowCarryRepository));
+
+builder.Services.AddScoped<ITownService, TownService>();
+builder.Services.AddScoped(typeof(ITownRepository), typeof(TownRepository));
+
+
+builder.Services.AddScoped<IMessageService, MessageService>();
+builder.Services.AddScoped(typeof(IMessageRepository), typeof(MessageRepository));
+
+builder.Services.AddScoped<IStreetService, StreetService>();
+builder.Services.AddScoped(typeof(IStreetRepository), typeof(StreetRepository));
+
 builder.Services.AddScoped<ICarsService, CarsService>();
 builder.Services.AddScoped<IPersonalService, PersonalService>();
 builder.Services.AddScoped<IApplicationService, ApplicationService>();
