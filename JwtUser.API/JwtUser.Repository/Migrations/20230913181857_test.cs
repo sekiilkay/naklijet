@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace JwtUser.Repository.Migrations
 {
     /// <inheritdoc />
-    public partial class AddPropertyForTransport3 : Migration
+    public partial class test : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -46,6 +46,7 @@ namespace JwtUser.Repository.Migrations
                     Discriminator = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Surname = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CompanyName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     IsCompany = table.Column<bool>(type: "bit", nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -104,32 +105,6 @@ namespace JwtUser.Repository.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_HowCarries", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Insurances",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Price = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Insurances", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "PackageHelpers",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_PackageHelpers", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -261,6 +236,27 @@ namespace JwtUser.Repository.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Messages",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Content = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Timestamp = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    FromId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    ToId = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Messages", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Messages_AspNetUsers_FromId",
+                        column: x => x.FromId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Personals",
                 columns: table => new
                 {
@@ -334,15 +330,17 @@ namespace JwtUser.Repository.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CategoryId = table.Column<int>(type: "int", nullable: false),
-                    Directions = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    itemCount = table.Column<int>(type: "int", nullable: false),
-                    packageCount = table.Column<int>(type: "int", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    bigitemCount = table.Column<int>(type: "int", nullable: false),
+                    miditemCount = table.Column<int>(type: "int", nullable: false),
+                    smallitemCount = table.Column<int>(type: "int", nullable: false),
                     StreetId = table.Column<int>(type: "int", nullable: false),
                     HowCarryId = table.Column<int>(type: "int", nullable: false),
-                    PackageHelperId = table.Column<int>(type: "int", nullable: false),
-                    InsuranceId = table.Column<int>(type: "int", nullable: false),
+                    isPackageHelpers = table.Column<bool>(type: "bit", nullable: false),
+                    isInsurances = table.Column<bool>(type: "bit", nullable: false),
                     AppUserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    ToStreetId = table.Column<int>(type: "int", nullable: true)
+                    ToStreetId = table.Column<int>(type: "int", nullable: true),
+                    isIntercity = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -363,18 +361,6 @@ namespace JwtUser.Repository.Migrations
                         name: "FK_Transports_HowCarries_HowCarryId",
                         column: x => x.HowCarryId,
                         principalTable: "HowCarries",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Transports_Insurances_InsuranceId",
-                        column: x => x.InsuranceId,
-                        principalTable: "Insurances",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Transports_PackageHelpers_PackageHelperId",
-                        column: x => x.PackageHelperId,
-                        principalTable: "PackageHelpers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
@@ -427,6 +413,32 @@ namespace JwtUser.Repository.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "AppPersonels",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    PersonalId = table.Column<int>(type: "int", nullable: false),
+                    ApplicationId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AppPersonels", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_AppPersonels_Applications_ApplicationId",
+                        column: x => x.ApplicationId,
+                        principalTable: "Applications",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_AppPersonels_Personals_PersonalId",
+                        column: x => x.PersonalId,
+                        principalTable: "Personals",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Applications_CarsId",
                 table: "Applications",
@@ -441,6 +453,16 @@ namespace JwtUser.Repository.Migrations
                 name: "IX_Applications_TransportId",
                 table: "Applications",
                 column: "TransportId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AppPersonels_ApplicationId",
+                table: "AppPersonels",
+                column: "ApplicationId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AppPersonels_PersonalId",
+                table: "AppPersonels",
+                column: "PersonalId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -487,6 +509,11 @@ namespace JwtUser.Repository.Migrations
                 column: "CompanyId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Messages_FromId",
+                table: "Messages",
+                column: "FromId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Personals_AppellationId",
                 table: "Personals",
                 column: "AppellationId");
@@ -522,16 +549,6 @@ namespace JwtUser.Repository.Migrations
                 column: "HowCarryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Transports_InsuranceId",
-                table: "Transports",
-                column: "InsuranceId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Transports_PackageHelperId",
-                table: "Transports",
-                column: "PackageHelperId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Transports_StreetId",
                 table: "Transports",
                 column: "StreetId");
@@ -546,7 +563,7 @@ namespace JwtUser.Repository.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Applications");
+                name: "AppPersonels");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
@@ -564,16 +581,22 @@ namespace JwtUser.Repository.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "Messages");
+
+            migrationBuilder.DropTable(
+                name: "Applications");
+
+            migrationBuilder.DropTable(
                 name: "Personals");
+
+            migrationBuilder.DropTable(
+                name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "Cars");
 
             migrationBuilder.DropTable(
                 name: "Transports");
-
-            migrationBuilder.DropTable(
-                name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "Appellations");
@@ -586,12 +609,6 @@ namespace JwtUser.Repository.Migrations
 
             migrationBuilder.DropTable(
                 name: "HowCarries");
-
-            migrationBuilder.DropTable(
-                name: "Insurances");
-
-            migrationBuilder.DropTable(
-                name: "PackageHelpers");
 
             migrationBuilder.DropTable(
                 name: "Streets");

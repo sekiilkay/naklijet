@@ -5,24 +5,18 @@
 namespace JwtUser.Repository.Migrations
 {
     /// <inheritdoc />
-    public partial class AddPropForAppUser : Migration
+    public partial class passwordHash : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<string>(
-                name: "CompanyName",
-                table: "AspNetUsers",
-                type: "nvarchar(max)",
-                nullable: true);
+
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropColumn(
-                name: "CompanyName",
-                table: "AspNetUsers");
+
         }
     }
 }

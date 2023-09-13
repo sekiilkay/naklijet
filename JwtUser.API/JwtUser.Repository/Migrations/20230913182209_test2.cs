@@ -5,7 +5,7 @@
 namespace JwtUser.Repository.Migrations
 {
     /// <inheritdoc />
-    public partial class UpdateCars : Migration
+    public partial class test2 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

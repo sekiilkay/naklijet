@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JwtUser.Repository.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230913121902_from_tos")]
-    partial class from_tos
+    [Migration("20230913185024_passwordHash")]
+    partial class passwordHash
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -196,14 +196,11 @@ namespace JwtUser.Repository.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("AppUserId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<string>("Content")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FromId")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime?>("Timestamp")
                         .HasColumnType("datetime2");
@@ -213,7 +210,7 @@ namespace JwtUser.Repository.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AppUserId");
+                    b.HasIndex("FromId");
 
                     b.ToTable("Messages");
                 });
@@ -629,9 +626,11 @@ namespace JwtUser.Repository.Migrations
 
             modelBuilder.Entity("JwtUser.Core.Entities.Message", b =>
                 {
-                    b.HasOne("JwtUser.Core.Entities.AppUser", null)
-                        .WithMany("Messages")
-                        .HasForeignKey("AppUserId");
+                    b.HasOne("JwtUser.Core.Entities.AppUser", "From")
+                        .WithMany()
+                        .HasForeignKey("FromId");
+
+                    b.Navigation("From");
                 });
 
             modelBuilder.Entity("JwtUser.Core.Entities.Personal", b =>
@@ -803,8 +802,6 @@ namespace JwtUser.Repository.Migrations
             modelBuilder.Entity("JwtUser.Core.Entities.AppUser", b =>
                 {
                     b.Navigation("Applications");
-
-                    b.Navigation("Messages");
 
                     b.Navigation("Transports");
                 });

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JwtUser.Repository.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230913143708_AppUserAdTo")]
-    partial class AppUserAdTo
+    [Migration("20230913182209_test2")]
+    partial class test2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -200,17 +200,17 @@ namespace JwtUser.Repository.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FromId")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime?>("Timestamp")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ToId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ToId");
+                    b.HasIndex("FromId");
 
                     b.ToTable("Messages");
                 });
@@ -626,11 +626,11 @@ namespace JwtUser.Repository.Migrations
 
             modelBuilder.Entity("JwtUser.Core.Entities.Message", b =>
                 {
-                    b.HasOne("JwtUser.Core.Entities.AppUser", "To")
+                    b.HasOne("JwtUser.Core.Entities.AppUser", "From")
                         .WithMany()
-                        .HasForeignKey("ToId");
+                        .HasForeignKey("FromId");
 
-                    b.Navigation("To");
+                    b.Navigation("From");
                 });
 
             modelBuilder.Entity("JwtUser.Core.Entities.Personal", b =>
