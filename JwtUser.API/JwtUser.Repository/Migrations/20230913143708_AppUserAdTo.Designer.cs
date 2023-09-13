@@ -4,6 +4,7 @@ using JwtUser.Repository.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JwtUser.Repository.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230913143708_AppUserAdTo")]
+    partial class AppUserAdTo
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -197,17 +200,17 @@ namespace JwtUser.Repository.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FromId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("Timestamp")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("ToId")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("FromId");
+                    b.HasIndex("ToId");
 
                     b.ToTable("Messages");
                 });
@@ -623,11 +626,11 @@ namespace JwtUser.Repository.Migrations
 
             modelBuilder.Entity("JwtUser.Core.Entities.Message", b =>
                 {
-                    b.HasOne("JwtUser.Core.Entities.AppUser", "From")
+                    b.HasOne("JwtUser.Core.Entities.AppUser", "To")
                         .WithMany()
-                        .HasForeignKey("FromId");
+                        .HasForeignKey("ToId");
 
-                    b.Navigation("From");
+                    b.Navigation("To");
                 });
 
             modelBuilder.Entity("JwtUser.Core.Entities.Personal", b =>

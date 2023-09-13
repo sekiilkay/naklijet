@@ -783,7 +783,6 @@ C:\Users\sekii\Source\Repos\TechcareerTransportathon0\JwtUser.API\JwtUser.API\ob
 C:\Users\sekii\Source\Repos\TechcareerTransportathon0\JwtUser.API\JwtUser.API\obj\Debug\net7.0\JwtUser.API.AssemblyInfoInputs.cache
 C:\Users\sekii\Source\Repos\TechcareerTransportathon0\JwtUser.API\JwtUser.API\obj\Debug\net7.0\JwtUser.API.AssemblyInfo.cs
 C:\Users\sekii\Source\Repos\TechcareerTransportathon0\JwtUser.API\JwtUser.API\obj\Debug\net7.0\JwtUser.API.csproj.CoreCompileInputs.cache
-C:\Users\sekii\Source\Repos\TechcareerTransportathon0\JwtUser.API\JwtUser.API\obj\Debug\net7.0\JwtUser.API.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\sekii\Source\Repos\TechcareerTransportathon0\JwtUser.API\JwtUser.API\obj\Debug\net7.0\JwtUser.API.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\sekii\Source\Repos\TechcareerTransportathon0\JwtUser.API\JwtUser.API\obj\Debug\net7.0\JwtUser.API.dll
 C:\Users\sekii\Source\Repos\TechcareerTransportathon0\JwtUser.API\JwtUser.API\obj\Debug\net7.0\refint\JwtUser.API.dll

@@ -12,7 +12,7 @@ namespace JwtUser.Core.Entities
         public string? Content { get; set; }
         public DateTime? Timestamp { get; set; }
         public string? FromId { get; set; }
+        public AppUser? From { get; set; }
         public string? ToId { get; set; }
-        //public AppUser? Company { get; set; }
     }
 }

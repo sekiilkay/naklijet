@@ -18,9 +18,19 @@ namespace JwtUser.Service.Services
             _messageRepository = messageRepository;
         }
 
-        public async Task<List<Message>> GetMessages(string userid, string companyid)
+        public async Task<List<object>> GetMessages(string userid, string companyid)
         {
             return await _messageRepository.GetMessages(userid, companyid);
         }
+
+        public async Task<List<Message>> GetMyMessages(string id)
+        {
+            return await _messageRepository.GetMyMessages(id);
+        }
+
+        //public async Task<List<Message>> GetMessages(string userid, string companyid)
+        //{
+        //    return await _messageRepository.GetMessages(userid, companyid);
+        //}
     }
 }

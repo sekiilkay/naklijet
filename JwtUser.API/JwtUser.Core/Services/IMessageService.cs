@@ -9,7 +9,9 @@ namespace JwtUser.Core.Services
 {
     public interface IMessageService : IGenericService<Message>
     {
-        Task<List<Message>> GetMessages(string userid, string companyid);
+        //Task<List<Message>> GetMessages(string userid, string companyid);
+        Task<List<object>> GetMessages(string userid, string companyid);
+        Task<List<Message>> GetMyMessages(string id);
 
     }
 }
