@@ -45,7 +45,6 @@ builder.Services.AddScoped(typeof(IHowCarryRepository), typeof(HowCarryRepositor
 builder.Services.AddScoped<ITownService, TownService>();
 builder.Services.AddScoped(typeof(ITownRepository), typeof(TownRepository));
 
-
 builder.Services.AddScoped<IMessageService, MessageService>();
 builder.Services.AddScoped(typeof(IMessageRepository), typeof(MessageRepository));
 
@@ -69,7 +68,7 @@ builder.Services.AddDbContext<AppDbContext>(x =>
 {
 x.LogTo(Console.WriteLine,Microsoft.Extensions.Logging.LogLevel.Information).UseSqlServer(builder.Configuration.GetConnectionString("SqlCon"), option =>
     {
-        option.MigrationsAssembly(Assembly.GetAssembly(typeof(AppDbContext)).GetName().Name);
+        option.MigrationsAssembly(Assembly.GetAssembly(typeof(AppDbContext))!.GetName().Name);
     });
 });
 
@@ -98,14 +97,13 @@ builder.Services.AddAuthentication(options =>
         ValidateAudience = true,
         ValidAudience = configuration["JWT:ValidAudience"],
         ValidIssuer = configuration["JWT:ValidIssuer"],
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWT:Secret"]))
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWT:Secret"]!))
     };
 });
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-
 builder.Services.AddSwaggerGen(options =>
 {
     options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme

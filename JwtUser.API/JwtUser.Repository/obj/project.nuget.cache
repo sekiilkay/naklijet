@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0CWRDbn6oHNVH9dwOLaNk4P7fMhm6IoIaYNZIpq7aNvP4K7ElKT/WSf189f2fGTBpAQkx+YyjyMl1FPUduGQyQ==",
+  "dgSpecHash": "LFwX/5NVoFPUri4UsknBbvymda5Q4+xqB9WZ5dkO1FrBcaVK2xmh5m8i+BeKK69zRFi377iI1MJdLs4LiLG1zA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\sekii\\OneDrive\\Masaüstü\\GitHubProject\\Transportathon\\JwtUser.API\\JwtUser.Repository\\JwtUser.Repository.csproj",
+  "projectFilePath": "C:\\Users\\sekii\\Source\\Repos\\TechcareerTransportathon123456789\\JwtUser.API\\JwtUser.Repository\\JwtUser.Repository.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\sekii\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\sekii\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

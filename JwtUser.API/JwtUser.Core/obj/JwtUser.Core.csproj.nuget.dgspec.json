@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sekii\\OneDrive\\Masaüstü\\GitHubProject\\Transportathon\\JwtUser.API\\JwtUser.Core\\JwtUser.Core.csproj": {}
+    "C:\\Users\\sekii\\Source\\Repos\\TechcareerTransportathon123456789\\JwtUser.API\\JwtUser.Core\\JwtUser.Core.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sekii\\OneDrive\\Masaüstü\\GitHubProject\\Transportathon\\JwtUser.API\\JwtUser.Core\\JwtUser.Core.csproj": {
+    "C:\\Users\\sekii\\Source\\Repos\\TechcareerTransportathon123456789\\JwtUser.API\\JwtUser.Core\\JwtUser.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sekii\\OneDrive\\Masaüstü\\GitHubProject\\Transportathon\\JwtUser.API\\JwtUser.Core\\JwtUser.Core.csproj",
+        "projectUniqueName": "C:\\Users\\sekii\\Source\\Repos\\TechcareerTransportathon123456789\\JwtUser.API\\JwtUser.Core\\JwtUser.Core.csproj",
         "projectName": "JwtUser.Core",
-        "projectPath": "C:\\Users\\sekii\\OneDrive\\Masaüstü\\GitHubProject\\Transportathon\\JwtUser.API\\JwtUser.Core\\JwtUser.Core.csproj",
+        "projectPath": "C:\\Users\\sekii\\Source\\Repos\\TechcareerTransportathon123456789\\JwtUser.API\\JwtUser.Core\\JwtUser.Core.csproj",
         "packagesPath": "C:\\Users\\sekii\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sekii\\OneDrive\\Masaüstü\\GitHubProject\\Transportathon\\JwtUser.API\\JwtUser.Core\\obj\\",
+        "outputPath": "C:\\Users\\sekii\\Source\\Repos\\TechcareerTransportathon123456789\\JwtUser.API\\JwtUser.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\sekii\\AppData\\Roaming\\NuGet\\NuGet.Config",

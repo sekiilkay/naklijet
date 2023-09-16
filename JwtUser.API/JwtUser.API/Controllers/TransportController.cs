@@ -35,6 +35,7 @@ namespace JwtUser.API.Controllers
             return Ok(values);            
         }
 
+        [Authorize]
         [HttpGet]
         [Route("GetTransportsList")]
         public async Task<IActionResult> GetListTransportsTest()
@@ -43,16 +44,16 @@ namespace JwtUser.API.Controllers
             return Ok(values);
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpPost("NewTransport")]
         public async Task<IActionResult> AddTransportCity(AddTransportCityDto transportCityDto)
         {
-            var userId = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var userId = _httpContextAccessor.HttpContext!.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
             var transport = _mapper.Map<Transport>(transportCityDto);
 
-            transport.AppUserId = userId;
-            //transport.AppUserId = "6e7c54f8-bc2c-403f-907c-2b3545f8247d";
+            transport.AppUserId = userId!;
+            transport.Weight = transport.bigitemCount * 8 + transport.miditemCount * 4 + transport.smallitemCount * 1;
 
             await _transportService.AddAsync(transport);
             return Ok("Data success add");
@@ -64,15 +65,15 @@ namespace JwtUser.API.Controllers
         [Route("GetList")]
         public async Task<IActionResult> GetMyTransportList()
         {
-            var userId = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var userId = _httpContextAccessor.HttpContext!.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
-            var values = await _transportService.GetUserTransportList(userId);
+            var values = await _transportService.GetUserTransportList(userId!);
             return Ok(values);
 
         }
 
 
-
+        [Authorize]
         [HttpDelete("{id}")]
         public async Task<IActionResult> RemoveTransport(int id)
         {

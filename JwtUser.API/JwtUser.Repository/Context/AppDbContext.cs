@@ -27,14 +27,8 @@ namespace JwtUser.Repository.Context
         public DbSet<Appellation> Appellations { get; set; }
         public DbSet<Application> Applications { get; set; }
         public DbSet<Personal> Personals { get; set; }
-        public DbSet<AppPersonel> AppPersonels { get; set; }
         public DbSet<Message> Messages { get; set; }
-
-        protected override void OnModelCreating(ModelBuilder builder)
-        {
-
-            base.OnModelCreating(builder);
-        }
+        public DbSet<AppPersonel> AppPersonels { get; set; }
     }
 
 }
