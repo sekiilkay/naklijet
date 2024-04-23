@@ -3771,11 +3771,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\sekii\\Source\\Repos\\TechcareerTransportathon123456789\\JwtUser.API\\JwtUser.Core\\JwtUser.Core.csproj",
+      "projectUniqueName": "C:\\Users\\sekii\\Source\\Repos\\naklijetrepo\\JwtUser.API\\JwtUser.Core\\JwtUser.Core.csproj",
       "projectName": "JwtUser.Core",
-      "projectPath": "C:\\Users\\sekii\\Source\\Repos\\TechcareerTransportathon123456789\\JwtUser.API\\JwtUser.Core\\JwtUser.Core.csproj",
+      "projectPath": "C:\\Users\\sekii\\Source\\Repos\\naklijetrepo\\JwtUser.API\\JwtUser.Core\\JwtUser.Core.csproj",
       "packagesPath": "C:\\Users\\sekii\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\sekii\\Source\\Repos\\TechcareerTransportathon123456789\\JwtUser.API\\JwtUser.Core\\obj\\",
+      "outputPath": "C:\\Users\\sekii\\Source\\Repos\\naklijetrepo\\JwtUser.API\\JwtUser.Core\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\sekii\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -3849,7 +3849,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

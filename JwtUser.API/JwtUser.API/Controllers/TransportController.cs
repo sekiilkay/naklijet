@@ -53,7 +53,8 @@ namespace JwtUser.API.Controllers
             var transport = _mapper.Map<Transport>(transportCityDto);
 
             transport.AppUserId = userId!;
-            transport.Weight = transport.bigitemCount * 8 + transport.miditemCount * 4 + transport.smallitemCount * 1;
+            transport.isShow = true;
+            transport.Weight = transport.bigitemCount*8 + transport.miditemCount*4 + transport.smallitemCount*1;
 
             await _transportService.AddAsync(transport);
             return Ok("Data success add");
@@ -65,9 +66,9 @@ namespace JwtUser.API.Controllers
         [Route("GetList")]
         public async Task<IActionResult> GetMyTransportList()
         {
-            var userId = _httpContextAccessor.HttpContext!.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            var userId = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
 
-            var values = await _transportService.GetUserTransportList(userId!);
+            var values = await _transportService.GetUserTransportList(userId);
             return Ok(values);
 
         }

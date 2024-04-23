@@ -68,7 +68,7 @@ builder.Services.AddDbContext<AppDbContext>(x =>
 {
 x.LogTo(Console.WriteLine,Microsoft.Extensions.Logging.LogLevel.Information).UseSqlServer(builder.Configuration.GetConnectionString("SqlCon"), option =>
     {
-        option.MigrationsAssembly(Assembly.GetAssembly(typeof(AppDbContext))!.GetName().Name);
+        option.MigrationsAssembly(Assembly.GetAssembly(typeof(AppDbContext)).GetName().Name);
     });
 });
 
@@ -97,7 +97,7 @@ builder.Services.AddAuthentication(options =>
         ValidateAudience = true,
         ValidAudience = configuration["JWT:ValidAudience"],
         ValidIssuer = configuration["JWT:ValidIssuer"],
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWT:Secret"]!))
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWT:Secret"]))
     };
 });
 
